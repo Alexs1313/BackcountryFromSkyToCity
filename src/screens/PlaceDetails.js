@@ -2,6 +2,7 @@ import {
   Animated,
   Dimensions,
   Image,
+  Platform,
   ScrollView,
   Share,
   StyleSheet,
@@ -142,7 +143,9 @@ ${place.description}`,
                       longitudeDelta: 0.02,
                     }}
                   >
-                    <Image source={require('../assets/icons/marker.png')} />
+                    {Platform.OS === 'ios' ? (
+                      <Image source={require('../assets/icons/marker.png')} />
+                    ) : null}
                   </Marker>
                 </MapView>
               </View>
